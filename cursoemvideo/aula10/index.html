@@ -13,12 +13,6 @@
         }
 
         div {
-            position: relative;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-
-
             width: 500px;
             height: 500px;
 
@@ -31,6 +25,14 @@
 
             color: black;
         }
+
+        main {
+            display: inline-block;
+
+            padding: 20px;
+
+            background-color: rgb(140, 223, 223);
+        }
     </style>
 </head>
 
@@ -39,7 +41,25 @@
         <p id="texto">interaja,,,,</p>
     </div>
 
+    <main>
+        <label for="n1">Digite um Numero: </label>
+        <input type="number" name="n1" id="n1">
+
+        <label for="n2">Digite um Numero: </label>
+        <input type="number" name="n2" id="n2">
+
+        <input type="button" value="Somar" onclick="conta()">
+    </main>
+
     <script>
+        function conta() {
+            var N1 = document.getElementById('n1')
+            var N2 = document.getElementById('n2')
+            var s = Number(N1.value) + Number(N2.value)
+
+            texto.innerText = `A soma dos valores Digitados é: ${s}`
+        }
+
         function clicar() {
             area.style.background = 'red'
             texto.innerText = 'Clicou!!!'
