@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+
+            background-color: rgb(76, 192, 192);
+
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #centro {
+            width: 100%;
+            height: 100%;
+
+            position: relative;
+        }
+
+        div.container {
+            width: 700px;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            padding: 0 2%;
+        }
+
+        form {
+            width: 100%;
+            height: 250px;
+
+            background-color: white;
+
+            padding: 5px;
+
+            margin: auto;
+
+            border-radius: 8px;
+
+            text-align: center;
+
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.329);
+        }
+
+        label {
+            display: block;
+
+            font-size: 2rem;
+            font-weight: normal;
+
+            color: rgb(61, 61, 165);
+
+            margin: 20px 0;
+        }
+
+        input[type=text] {
+            width: 80%;
+            height: 30px;
+
+            margin-bottom: 40px;
+
+            padding: 5px;
+
+            font-size: 1.1rem;
+        }
+
+        input[type=button] {
+            width: 60%;
+            height: 30px;
+
+            background-image: linear-gradient(to right, rgba(255, 255, 0, 0.548), rgba(0, 0, 255, 0.521));
+
+            border: none;
+            border-radius: 3px;
+
+            color: white;
+
+            font-size: 1.1rem;
+        }
+
+        input[type=button]:hover {
+            background-color: red;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="centro">
+        <div class="container">
+            <form action="">
+                <div>
+                    <label for="pais">Digite o Nome do seu pais: </label>
+                    <input type="text" name="pais" id="pais">
+                </div>
+                <input type="button" value="Sua nacionalidade !!" onclick="brasil()">
+                <p id="res">
+                    Resultado:
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function brasil() {
+            var paisV = document.getElementById('pais').value
+            var res = document.getElementById('res')
+
+            if(paisV == 'brasil') {
+                window.alert('Parabéns você é brasileiro !!!')
+
+                res.innerText = `Parabéns você é brasileiro !!!`
+            } else {
+                window.alert('AFF, um gringo !!!')
+                res.innerText = `AFF, um gringo !!!`
+            }
+        }
+    </script>
+</body>
+
+</html>
