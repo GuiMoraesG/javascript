@@ -8,6 +8,7 @@ function contar() {
     if (num.value.length == 0) {
         alert(`Por favor, digite um número válido ${N}`)
     } else {
+        Tab.innerHTML = ''
         for (var c = 0; c <= 10; c++) {
             var item = document.createElement('option')
             item.text += `${N} X ${c} = ${N * c} `
