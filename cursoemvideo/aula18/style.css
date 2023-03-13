@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+body {
+    background-color: rgb(221, 86, 113);
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: white;
+
+    text-align: center;
+
+    font-size: 3rem;
+}
+
+main {
+    background-color: white;
+
+    max-width: 550px;
+
+    margin: auto;
+
+    padding: 15px;
+
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.281);
+
+    border-radius: 8px;
+}
+
+select {
+    width: 200px;
+
+    margin-top: 8px;
+}
+
+.botao {
+    margin-top: 8px;
+}
