@@ -8,7 +8,7 @@ res = criarTexto()
 function criarTexto() {
     const p = document.createElement('p')
     const pai = document.getElementById('res')
-    p.innerHTML = `${getDayWeak(dia)}, ${data.getDate()} de ${getMonth(mes)} de ${getYear()} ${getMyHours()}:${getMyMinutes()}`
+    p.innerHTML = `${getDayWeak(dia)}, ${data.getDate()} de ${getMonth(mes)} de ${getYear(data)} ${getMyHours(data)}:${getMyMinutes(data)}`
     return pai.appendChild(p)
 }
 
@@ -41,20 +41,17 @@ function getMonth(mes) {
     }
 }
 
-function getYear() {
-    const data = new Date()
+function getYear(data) {
     const ano = data.getFullYear()
     return ano
 }
 
-function getMyHours() {
-    const data = new Date()
+function getMyHours(data) {
     const horas = data.getHours()
     return horas
 }
 
-function getMyMinutes() {
-    const data = new Date()
+function getMyMinutes(data) {
     const minutos = data.getMinutes()
     return minutos
 }
