@@ -55,3 +55,12 @@ function getMyMinutes(data) {
     const minutos = data.getMinutes()
     return minutos
 }
+/* 
+const res = document.getElementById('res')
+const data = new Date()
+const opcoes = {
+    dateStyle: 'full',
+    timeStyle: 'short'
+}
+res.innerHTML = data.toLocaleDateString('pt-BR', opcoes)
+*/
