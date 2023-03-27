@@ -62,5 +62,5 @@ const opcoes = {
     dateStyle: 'full',
     timeStyle: 'short'
 }
-res.innerHTML = data.toLocaleDateString('pt-BR', opcoes)
+res.innerHTML = data.toLocaleDateString('pt-BR', {dataStyle: 'full', timeStyle: 'full'})
 */
