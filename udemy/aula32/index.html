@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício</title>
+    <style>
+        body {
+            background-color: crimson;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        section#res {
+            background-color: white;
+
+            width: 950px;
+
+            margin: auto;
+            margin-top: 40px;
+
+            padding: 8px;
+            padding-left: 20px;
+
+            border-radius: 8px;
+
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.226);
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        input[type='text'] {
+            padding: 8px;
+
+            width: 150px;
+        }
+
+        ul {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="res">
+        <h1>Lista de Tarefas</h1>
+        <div>
+            <input type="text" name="add" id="add">
+            <input type="button" value="Adicionar Tarefa" onclick="addTarefa()">
+        </div>
+        <div>
+            <ul id="lista">
+
+            </ul>
+        </div>
+    </section>
+    <script src="main.js"></script>
+</body>
+
+</html>
