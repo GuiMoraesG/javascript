@@ -60,9 +60,7 @@ bTNVerificar.addEventListener('click', function () {
             menor = valores[i]
         }
     }
-
-
-
+    
     res.innerHTML += `Temos ${valores.length} numeros cadastrados <br>`
     res.innerHTML += `O maior valor digitado foi ${maior} <br>`
     res.innerHTML += `O menor valor digitado foi ${menor} <br>`
