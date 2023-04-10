@@ -39,6 +39,8 @@
             font-size: 2rem;
 
             padding: 5px;
+
+            text-align: right;
         }
 
         table {
@@ -49,14 +51,24 @@
             width: 100%;
 
             background-color: lightgray;
+
+            cursor: pointer;
         }
 
-        th {
-            padding: 10px 20px;
+        button {
+            width: 100%;
+            height: 40px;
+
+            background-color: rgb(238, 234, 234);
+            border: none;
+
+            cursor: pointer;
+
+            font-size: 1.2rem;
         }
 
-        th:hover {
-            background-color: rgb(121, 120, 120);
+        button:hover {
+            background-color: rgb(148, 146, 146);
         }
     </style>
 </head>
@@ -64,37 +76,37 @@
 <body>
     <section id="res">
         <h1>Calculadora</h1>
-        <input type="number" name="num" id="num">
-        <table>
+        <input type="text" name="display" id="display">
+        <table class="calculadora">
             <tr>
-                <th>C</th>
-                <th>(</th>
-                <th>)</th>
-                <th>/</th>
+                <th><button class="btn-clear">C</button></th>
+                <th><button class="btn-num">(</button></th>
+                <th><button class="btn-num">)</button></th>
+                <th><button class="btn-num">/</button></th>
             </tr>
             <tr>
-                <th>7</th>
-                <th>8</th>
-                <th>9</th>
-                <th>*</th>
+                <th><button class="btn-num">7</button></th>
+                <th><button class="btn-num">8</button></th>
+                <th><button class="btn-num">9</button></th>
+                <th><button class="btn-num">*</button></th>
             </tr>
             <tr>
-                <th>4</th>
-                <th>5</th>
-                <th>6</th>
-                <th>+</th>
+                <th><button class="btn-num">4</button></th>
+                <th><button class="btn-num">5</button></th>
+                <th><button class="btn-num">6</button></th>
+                <th><button class="btn-num">+</button></th>
             </tr>
             <tr>
-                <th>1</th>
-                <th>2</th>
-                <th>3</th>
-                <th>-</th>
+                <th><button class="btn-num">1</button></th>
+                <th><button class="btn-num">2</button></th>
+                <th><button class="btn-num">3</button></th>
+                <th><button class="btn-num">-</button></th>
             </tr>
             <tr>
-                <th>.</th>
-                <th>0</th>
-                <th>&lt;&lt;</th>
-                <th>=</th>
+                <th><button class="btn-num">.</button></th>
+                <th><button class="btn-num">0</button></th>
+                <th><button class="btn-del">&laquo;</button></th>
+                <th><button class="btn-eq">=</button></th>
             </tr>
         </table>
     </section>
