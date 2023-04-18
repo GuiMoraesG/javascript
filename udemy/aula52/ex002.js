@@ -3,4 +3,8 @@ const produto = {
     preco: 500
 }
 
-console.log(Object.getOwnPropertyDescriptor(produto, 'nome '))
+Object.defineProperty(produto, 'nome', {
+    enumerable: false
+})
+
+console.log(Object.getOwnPropertyDescriptor(produto, 'nome'))
