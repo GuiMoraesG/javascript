@@ -9,15 +9,15 @@ class ValidaCpf {
         if (this.isSequencia()) return false
 
         const cpfSemDigito = this.cpfLimpo.slice(0, -2)
-        const digito1 = this.validarDigito(cpfSemDigito)
-        const digito2 = this.validarDigito(cpfSemDigito + digito1)
+        const digito1 = ValidaCpf.validarDigito(cpfSemDigito)
+        const digito2 = ValidaCpf.validarDigito(cpfSemDigito + digito1)
         const novoCpf = cpfSemDigito + digito1 + digito2
 
         console.log(novoCpf)
         return novoCpf === this.cpfLimpo
     }
 
-    validarDigito(cpf) {
+    static validarDigito(cpf) {
         const cpfArray = Array.from(cpf)
         let regressivo = cpfArray.length + 1
         const total = cpfArray.reduce((acumulador, valor) => {
