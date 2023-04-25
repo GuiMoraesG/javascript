@@ -28,7 +28,29 @@ class Validaormulario {
             if (campos.classList.contains('cpf')) {
                 if (!this.validaCpf(campos)) valid = false
             }
+
+            if (campos.classList.contains('user')) {
+                if (!this.validaUsuario(campos)) valid = false
+            }
         }
+
+        return valid
+    }
+
+    validaUsuario(campo) {
+        let valid = true
+        const usuario = campo.value
+
+        if (usuario.length < 3 || usuario.length > 12) {
+            this.criaErro(campo, 'Usuário precisa ter entre 3 e 12 caracteres')
+            valid = false
+        }
+
+        if (!usuario.match(/^[a-zA-Z0-9]+$/g)) {
+            this.criaErro(campo, 'Usuário só pode conter letras e números')
+            valid = false
+        }
+        return valid
     }
 
     validaCpf(campo) {
@@ -52,6 +74,32 @@ class Validaormulario {
     handleSubmit(e) {
         e.preventDefault()
         const campoValido = this.camposValidos()
+        const senhasValidas = this.validarSenhas()
+
+        if (campoValido && senhasValidas) {
+            alert('Foi enviado')
+            // this.formulario.submit()
+        }
+    }
+
+    validarSenhas() {
+        let valid = true
+
+        const senha = this.formulario.querySelector('.senha')
+        const senhaRepetida = this.formulario.querySelector('.senhaRepetida')
+
+        if (senha.value !== senhaRepetida.value) {
+            valid = false
+            this.criaErro(senha, 'As senhas precisam ser iguais !!')
+            this.criaErro(senhaRepetida, 'As senhas precisam ser iguais !!')
+        }
+
+        if (senha.value.length < 3 || senha.value.length > 12) {
+            valid = false
+            this.criaErro(senha, 'A Senha precisa conter entre 3 e 12 caracteres')
+        }
+
+        return valid
     }
 }
 
