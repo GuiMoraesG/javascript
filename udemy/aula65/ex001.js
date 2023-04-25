@@ -78,7 +78,7 @@ class Validaormulario {
 
         if (campoValido && senhasValidas) {
             alert('Foi enviado')
-            // this.formulario.submit()
+            this.formulario.submit()
         }
     }
 
