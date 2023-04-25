@@ -24,7 +24,22 @@ class Validaormulario {
                 this.criaErro(campos, `Campo '${label}' não pode estar em branco`)
                 valid = false
             }
+
+            if (campos.classList.contains('cpf')) {
+                if (!this.validaCpf(campos)) valid = false
+            }
         }
+    }
+
+    validaCpf(campo) {
+        const cpf = new ValidaCpf(campo.value)
+
+        if (!cpf.retornaCpfValido()) {
+            this.criaErro(campo, 'CPF inválido')
+            return false
+        }
+
+        return true
     }
 
     criaErro(campo, msg) {
