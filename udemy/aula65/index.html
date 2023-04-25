@@ -11,34 +11,34 @@
 
 <body>
     <main>
-        <section>
+        <form action="/" method="post" class="formulario">
             <h1>Formulário de Cadastro</h1>
             <div class="texto-nome">
                 <label for="nome">Nome: </label>
-                <input type="text" name="nome" id="nome" autocomplete="off">
+                <input type="text" name="nome" id="nome" class="validar">
             </div>
             <div>
                 <label for="sobreNome">Sobrenome: </label>
-                <input type="text" name="sobreNome" id="sobreNome">
+                <input type="text" name="sobreNome" id="sobreNome" class="validar">
             </div>
             <div>
                 <label for="cpf">CPF: </label>
-                <input type="text" name="cpf" id="cpf">
+                <input type="text" name="cpf" id="cpf" class="validar">
             </div>
             <div>
                 <label for="user">Usuário: </label>
-                <input type="text" name="user" id="user">
+                <input type="text" name="user" id="user" class="validar">
             </div>
             <div>
                 <label for="senha">Senha: </label>
-                <input type="password" name="senha" id="senha">
+                <input type="password" name="senha" id="senha" class="validar">
             </div>
             <div>
                 <label for="senhaRepetida">Repetir Senha: </label>
-                <input type="password" name="senhaRepetida" id="senhaRepetida">
+                <input type="password" name="senhaRepetida" id="senhaRepetida" class="validar">
             </div>
-            <button class="botao">Enviar</button>
-        </section>
+            <button type="submit" class="botao">Enviar</button>
+        </form>
     </main>
     <script src="ex001.js"></script>
 </body>
