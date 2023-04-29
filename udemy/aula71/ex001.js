@@ -1,6 +1,9 @@
-fetch('pessoas.json')
-    .then(resposta => resposta.json())
-    .then(json => elementosPagina(json))
+// fetch('pessoas.json')
+//     .then(resposta => resposta.json())
+//     .then(json => elementosPagina(json))
+
+axios('pessoas.json')
+    .then(resposta => elementosPagina(resposta.data))
 
 function elementosPagina(json) {
     const table = document.createElement('table')
