@@ -24,19 +24,15 @@ document.addEventListener('click', e => {
     }
 })
 
-function carregaPagina(el) {
+async function carregaPagina(el) {
     const href = el.getAttribute('href')
 
-    request({
+    const resul = await request({
         method: 'GET',
         url: href,
     })
-        .then(response => {
-            carregaResultado(response)
-        })
-        .catch(er => {
-            console.log(er)
-        })
+
+    carregaResultado(resul)
 }
 
 function carregaResultado(response) {
