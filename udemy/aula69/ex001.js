@@ -27,12 +27,18 @@ document.addEventListener('click', e => {
 async function carregaPagina(el) {
     const href = el.getAttribute('href')
 
-    const resul = await request({
-        method: 'GET',
-        url: href,
-    })
+    try {
+        const resul = await request({
+            method: 'GET',
+            url: href,
+        })
 
-    carregaResultado(resul)
+        carregaResultado(resul)
+    } catch (e) {
+        console.log(e)
+    }
+
+
 }
 
 function carregaResultado(response) {
