@@ -1,4 +1,1 @@
-//1
-//2
-//3
-console.log('eiiiiiiiiiiiiiiiiiiii')
+import './style.css'
