@@ -19,4 +19,4 @@ const adicionarId = pessoas.map(function (valor, indice) {
     return newObject
 })
 
-console.log(adicionarId)
+console.log(retornaNome)

@@ -63,12 +63,9 @@ class Loja {
 
     metodoFor(tag, el) {
         if (tag === 'a') {
-            for (let i = 0; i <= this.links.length; i++) {
-                const key = el.getAttribute('key')
-                this.items[key].quantidade++
-
-                this.atualizarCarrinho()
-            }
+            const key = el.getAttribute('key')
+            this.items[key].quantidade++
+            this.atualizarCarrinho()
         }
     }
 }
