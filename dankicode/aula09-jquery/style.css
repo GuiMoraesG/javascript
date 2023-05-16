@@ -14,3 +14,10 @@ body {
 .box {
     height: 3000px;
 }
+
+.box2 {
+    width: 500px;
+    height: 500px;
+
+    background-color: lightgray;
+}
