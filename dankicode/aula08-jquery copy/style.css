@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.testes1 {
+    width: 100%;
+
+    margin-top: 80px;
+
+    background-color: black;
+
+    padding: 30px;
+}
+
+.testes2 {
+    width: 100%;
+
+    margin-top: 80px;
+
+    background-color: rgba(255, 255, 0, 0.521);
+
+    padding: 30px;
+}
