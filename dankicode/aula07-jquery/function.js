@@ -1,5 +1,6 @@
 $(function () {
-    $('.testes').css('background', 'red')
+    $('h1').css('text-align', 'center').css('font-size', '4rem')
+    $('.testes1').css('background', 'red')
     $('p').css('color', 'white').css('font-weight', 'bold').css('font-size', '3rem')
 
     setTimeout(function () {
