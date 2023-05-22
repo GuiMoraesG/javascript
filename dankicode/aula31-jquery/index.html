@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous">
+        </script>
+    <title>Iniciando com Jquery</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+
+        .menu {
+            background-color: #ddd;
+
+            width: 100%;
+            height: 100px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .itemMenu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 50px;
+            height: 50px;
+
+            margin: 10px;
+
+            border-radius: 10px;
+
+            padding: 10px;
+
+            background-color: #128;
+
+            color: #fff;
+
+            text-transform: capitalize;
+
+            cursor: pointer;
+        }
+
+        .submenu {
+            display: none;
+            justify-content: center;
+            align-items: center;
+
+            border: 1px solid #000;
+
+            width: 100%;
+            height: 30px;
+        }
+
+        .itemSubMenu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 150px;
+            height: 20px;
+
+            margin: 10px;
+
+            border-radius: 10px;
+
+            padding: 10px;
+
+            background-color: #128;
+            color: white;
+
+            text-transform: capitalize;
+
+            cursor: pointer;
+
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="menu" class="menu">
+        <div class="itemMenu">Home</div>
+        <div id="menujquery" class="itemMenu">Jquery</div>
+        <div id="menucanvas" class="itemMenu">Canvas</div>
+        <div id="menupython" class="itemMenu">Python</div>
+        <div id="menuarduino" class="itemMenu">Arduino</div>
+    </div>
+
+    <div id="submenu-jquery" class="submenu">
+        <div class="itemSubMenu">Aulas JQuery</div>
+        <div class="itemSubMenu">Material JQuery</div>
+    </div>
+
+    <div id="submenu-canvas" class="submenu">
+        <div class="itemSubMenu">Aulas Canvas</div>
+        <div class="itemSubMenu">Material Canvas</div>
+    </div>
+
+    <div id="submenu-python" class="submenu">
+        <div class="itemSubMenu">Aulas Python</div>
+        <div class="itemSubMenu">Material Python</div>
+    </div>
+
+    <div id="submenu-arduino" class="submenu">
+        <div class="itemSubMenu">Aulas arduino</div>
+        <div class="itemSubMenu">Material arduino</div>
+    </div>
+
+    <script src="function.js"></script>
+</body>
+
+</html>
