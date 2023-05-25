@@ -6,7 +6,9 @@ $('#btnRemoverClass').click(() => {
     $('#caixa').removeClass('borda')
 })
 
-
+$('#btnAdicionarClass').click(() => {
+    $('#caixa').addClass('borda')
+})
 
 $('#btnPosition').click(() => {
     let pt = $('#caixa').position().top
