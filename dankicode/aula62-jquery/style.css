@@ -11,6 +11,12 @@ body {
     height: 100%;
 }
 
+.test {
+    text-align: center;
+
+    margin: 40px 0;
+}
+
 .box {
     width: 500px;
     height: 500px;
@@ -18,4 +24,6 @@ body {
     background-color: lightgray;
 
     margin: auto;
+
+    text-align: center;
 }
