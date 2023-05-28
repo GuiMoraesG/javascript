@@ -1,4 +1,6 @@
-$('.box').click(function () {
+$('.box').click(function (e) {
+    e.stopPropagation()
+
     $('.box').width(600)
     $('.box').height(600)
 
@@ -8,7 +10,7 @@ $('.box').click(function () {
     atualiza()
 })
 
-$('.box').mouseout(function () {
+$('body').click(function () {
     $('.box').width(500)
     $('.box').height(500)
 
@@ -23,5 +25,9 @@ function atualiza() {
 
     return $('.conteudo').text(largura, altura)
 }
+
+$('.limpar').click(() => {
+    $('.box').empty()
+})
 
 atualiza()
