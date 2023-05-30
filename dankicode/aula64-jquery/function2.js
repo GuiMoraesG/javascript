@@ -11,6 +11,10 @@ function ativarClickDeSaida() {
         $('.opacidade').fadeOut()
     })
 
+    $('.del').click(() => {
+        $('.opacidade').fadeOut()
+    })
+
     $('.formulario').click(e => {
         e.stopPropagation()
     })

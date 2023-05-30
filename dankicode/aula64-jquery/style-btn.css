@@ -52,4 +52,41 @@ button:hover {
     z-index: 1;
 
     background-color: rgba(0, 0, 0, 0.6);
+
+    padding: 40px 2% 40px 2%;
+}
+
+.del {
+    width: 20px;
+
+    border-radius: 50%;
+
+    background-color: #ddd;
+
+    text-align: center;
+
+    position: absolute;
+    top: 0px;
+    left: 550px;
+
+    transform: translate(-50%, -32%);
+
+    color: rgb(62, 118, 221);
+}
+
+.del:hover {
+    background-color: white;
+
+    cursor: pointer;
+
+    color: red;
+}
+
+.erroText {
+    color: red;
+
+    font-size: 0.8rem;
+
+    margin-top: -10px;
+    margin-bottom: 25px;
 }
