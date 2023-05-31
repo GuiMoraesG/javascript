@@ -1,19 +1,16 @@
-function verificarClique() {
+function verificarClick() {
     $('a').click(e => {
         e.preventDefault()
 
         let href = $(this).attr('href')
-
         $.ajax({
-            'beforeSend': function () {
-                console.log('aqui')
-            },
-            'url': href
-        }).done(function (data) {
-            $('#container').html(data)
+            'url': href,
+            'success': function(data) {
+                console.log(data)
+            }
         })
+
     })
 }
 
-
-verificarClique()
+verificarClick()
