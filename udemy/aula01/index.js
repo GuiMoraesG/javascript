@@ -6,7 +6,11 @@
 // console.log(`Meu Nome é "GUILHERME DE MORAES GARCIA". e estou aprendendo JavaScript ás ${hora}:${min}:${seconds} Horas`)
 // console.log(`Meu Nome é "GUILHERME DE MORAES GARCIA". e estou aprendendo JavaScript ás`, 10, ` Horas`)
 
-let array = [1, 2, 3, 4, 9, 7]
-
-
-console.log(array.length)
+let o = {}
+o.x = 1
+let p = o
+p.y = 2
+let q = p
+q.z = 6
+q.x = 3
+console.log(o.x)
