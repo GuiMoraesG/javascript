@@ -9,7 +9,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "express": "^4.18.2"
+  "devDependencies": {
+    "express": "^4.0.0"
   }
 }
