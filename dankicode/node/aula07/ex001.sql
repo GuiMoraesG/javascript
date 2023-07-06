@@ -1,5 +1,5 @@
 insert into usuarios(nome, email, idade) values(
-    "ricardo",
+    "davo",
     "ricardo@gmail.com",
-    8
+    55
 ); 
