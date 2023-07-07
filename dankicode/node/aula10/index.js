@@ -2,8 +2,14 @@ const express = require('express')
 const app = express()
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
-let handle = handlebars.create({ defaultLayout: 'main' })
 const Post = require('./models/Post')
+let handle = handlebars.create({
+    defaultLayout: 'main',
+    runtimeOptions: {
+        allowProtoPropertiesByDefault: true,
+        allowProtoMethodsByDefault: true,
+    }
+})
 
 app.engine('handlebars', handle.engine)
 app.set('view engine', 'handlebars')
@@ -12,7 +18,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-    res.render('home')
+    Post.findAll({ order: [['id', 'DESC']] }).then((posts) => {
+        res.render('home', { posts: posts })
+    })
 })
 
 app.get('/cadastro', (req, res) => res.render('formulario'))
