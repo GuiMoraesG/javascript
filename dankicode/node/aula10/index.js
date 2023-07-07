@@ -34,6 +34,10 @@ app.post('/add', (req, res) => {
         .catch(() => res.send('ERRO!!'))
 })
 
+app.get('/deletar/:id', (req, res) => {
+    Post.destroy({ where: { 'id': req.params.id } }).then(() => res.send('Deletado!!')).catch((e) => res.send(e))
+})
+
 app.listen(8081, () => {
     console.log('servidor ligado')
     console.log('http://localhost:8081')
