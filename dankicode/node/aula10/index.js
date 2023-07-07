@@ -3,6 +3,7 @@ const app = express()
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 let handle = handlebars.create({ defaultLayout: 'main' })
+const Post = require('./models/Post')
 
 app.engine('handlebars', handle.engine)
 app.set('view engine', 'handlebars')
@@ -10,12 +11,19 @@ app.set('view engine', 'handlebars')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.get('/cadastro', (req, res) => {
-    res.render('formulario')
+app.get('/', (req, res) => {
+    res.render('home')
 })
 
+app.get('/cadastro', (req, res) => res.render('formulario'))
+
 app.post('/add', (req, res) => {
-    res.send(`Texto: ${req.body.titulo} Conteudo: ${req.body.conteudo}`)
+    Post.create({
+        titulo: req.body.titulo,
+        conteudo: req.body.conteudo
+    })
+        .then(() => res.redirect('/'))
+        .catch(() => res.send('ERRO!!'))
 })
 
 app.listen(8081, () => {
