@@ -1,24 +1,54 @@
 <%- include('includes/head') %>
+    <%- include('includes/nav') %>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2"></div>
 
-    <div class="container">
-        <main>
+                <div class="col-lg-8 my-3">
+                    <h1 class="text-center">Agenda</h1>
+                    <p class="text-center lead">Seus contatos estão abaixo.</p>
 
-            <h1>
-                <% if(typeof titulo !=='undefined' ) { %>
-                    <%= titulo %>
-                        <% } else { %>
-                            o titulo não foi encontrado
-                            <% } %>
-            </h1>
+                    <div class="row">
+                        <div class="col my-3">
+                            <div class="alert alert-danger">Um erro qualquer</div>
+                        </div>
+                    </div>
 
-            <form action="/" method="post">
-                <label>Cliente</label>
-                <input type="text" name="cliente">
-                <button>Submit</button>
-            </form>
+                    <div class="responsive-table">
+                        <table class="table my-3">
+                            <tr>
+                                <td>Guilherme</td>
+                                <td>Moraes</td>
+                                <td>(11)99999999</td>
+                                <td>gui@gmail.com</td>
+                            </tr>
 
-        </main>
+                            <tr>
+                                <td>Guilherme</td>
+                                <td>Moraes</td>
+                                <td>(11)99999999</td>
+                                <td>gui@gmail.com</td>
+                            </tr>
 
-    </div>
+                            <tr>
+                                <td>Guilherme</td>
+                                <td>Moraes</td>
+                                <td>(11)99999999</td>
+                                <td>gui@gmail.com</td>
+                            </tr>
 
-<%- include('includes/footer') %>
+                            <tr>
+                                <td>Guilherme</td>
+                                <td>Moraes</td>
+                                <td>(11)99999999</td>
+                                <td>gui@gmail.com</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
+        <%- include('includes/footer') %>
