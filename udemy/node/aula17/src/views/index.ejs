@@ -1,6 +1,5 @@
 <%- include('includes/head') %>
 
-<body>
     <div class="container">
         <main>
 
@@ -13,7 +12,6 @@
             </h1>
 
             <form action="/" method="post">
-                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                 <label>Cliente</label>
                 <input type="text" name="cliente">
                 <button>Submit</button>
@@ -23,7 +21,4 @@
 
     </div>
 
-    <script src="assets/js/bundle.js"></script>
-</body>
-
-</html>
+<%- include('includes/footer') %>

@@ -1,4 +1,5 @@
 require('dotenv').config()
+
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
@@ -9,8 +10,7 @@ const MongoStore = require('connect-mongo')
 const flash = require('connect-flash')
 const routes = require('./routes')
 const path = require('path')
-const csrf = require('csurf')
-const { middlewareGlobal, checkCsrfError, csrfMiddleware } = require('./src/middlewares/middleware')
+const { middlewareGlobal } = require('./src/middlewares/middleware')
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -33,10 +33,8 @@ app.use(flash())
 app.set('views', path.resolve(__dirname, 'src', 'views'))
 app.set('view engine', 'ejs')
 
-app.use(csrf())
 app.use(middlewareGlobal)
-app.use(checkCsrfError)
-app.use(csrfMiddleware)
+
 app.use(routes)
 
 app.on('pronto', () => {
