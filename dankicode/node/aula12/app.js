@@ -1,9 +1,13 @@
-require('dotenv').config
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const handlebars = require('express-handlebars')
+const router = require('./routes')
 const mongoose = require('mongoose')
-mongoose.connect(process.env.CONNECTION).then(() => console.log('Conectado no Mongoose')).catch((e) => console.log(e))
+mongoose.connect(process.env.CONNECTION, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => console.log('Conectado no Mongoose')).catch((e) => console.log(e))
 
 let handle = handlebars.create({
     defaultLayout: 'main',
@@ -18,7 +22,7 @@ app.set('view engine', 'handlebars')
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-
+app.use(router)
 
 
 
