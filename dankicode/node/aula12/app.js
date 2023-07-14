@@ -17,6 +17,7 @@ let handle = handlebars.create({
         allowProtoMethodsByDefault: true,
     }
 })
+
 app.engine('handlebars', handle.engine)
 app.set('view engine', 'handlebars')
 
