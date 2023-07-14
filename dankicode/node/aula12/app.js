@@ -4,11 +4,26 @@ const app = express()
 const handlebars = require('express-handlebars')
 const router = require('./routes')
 const path = require('path')
+const session = require('express-session')
+const flash = require('connect-flash')
 const mongoose = require('mongoose')
 mongoose.connect(process.env.CONNECTION, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => console.log('Conectado no Mongoose')).catch((e) => console.log(e))
+
+app.use(session({
+    secret: 'Segredinho',
+    resave: true,
+    saveUninitialized: true
+}))
+app.use(flash())
+app.use((req, res, next) => {
+    res.locals.successMsg = req.flash('successMsg')
+    res.locals.erroMsg = req.flash('erroMsg')
+
+    next()
+})
 
 let handle = handlebars.create({
     defaultLayout: 'main',
