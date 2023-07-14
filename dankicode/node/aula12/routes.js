@@ -36,8 +36,10 @@ router.get('/categorias/edit/:id', async (req, res) => {
 })
 
 router.post('/categorias/edit', async (req, res) => {
-    const categoria = new Categoria()
-    const cat = await categoria.procurarCategoriasPelaId(req.body.id)
+    const categoria = new Categoria(req.body)
+    await categoria.editar(req.body.id)
+
+    res.redirect('/categorias')
 })
 
 module.exports = router

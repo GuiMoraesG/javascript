@@ -43,6 +43,13 @@ class Categoria {
         return categoria
     }
 
+    async editar(id) {
+        this.valida()
+        if (this.erros.length > 0) return
+
+        await CategoriaModel.findByIdAndUpdate(id, this.body, { new: true })
+    }
+
 }
 
 module.exports = Categoria
