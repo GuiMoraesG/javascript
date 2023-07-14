@@ -37,6 +37,12 @@ class Categoria {
         return categoria
     }
 
+    async procurarCategoriasPelaId(id) {
+        const categoria = await CategoriaModel.findById(id)
+
+        return categoria
+    }
+
 }
 
 module.exports = Categoria
