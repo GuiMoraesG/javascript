@@ -31,6 +31,12 @@ class Categoria {
         if (this.body.slug.length < 3) this.erros.push({ texto: 'O slug tem que conter mais de 3 caracteres' })
     }
 
+    async procurarCategorias() {
+        const categoria = await CategoriaModel.find().sort({ date: -1 })
+
+        return categoria
+    }
+
 }
 
 module.exports = Categoria
