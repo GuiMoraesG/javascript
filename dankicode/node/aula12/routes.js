@@ -10,7 +10,16 @@ router.get('/categorias/add', (req, res) => res.render('addCategoria'))
 
 router.post('/categorias/nova', async (req, res) => {
     const categoria = new Categoria(req.body)
-    categoria.registro()
+    await categoria.registro()
+
+    if (categoria.erros.length > 0) {
+        req.flash('erroMsg', 'Houve um erro para cadastrar a categoria')
+        res.render('addCategoria', { erros: categoria.erros })
+        return
+    }
+
+    req.flash('successMsg', 'Categoria Registrada com Sucesso!')
+    return res.redirect('/categorias')
 })
 
 
