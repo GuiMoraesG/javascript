@@ -7,3 +7,21 @@ const CategoriaSchema = new mongoose.Schema({
 })
 
 const CategoriaModel = mongoose.model('Categoria', CategoriaSchema)
+
+class Categoria {
+    constructor(body) {
+        this.body = body
+    }
+
+    async registro() {
+        this.body = {
+            nome: this.body.nome,
+            slug: this.body.slug
+        }
+
+        await CategoriaModel.create(this.body)
+    }
+
+}
+
+module.exports = Categoria
