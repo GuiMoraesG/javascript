@@ -59,8 +59,11 @@ router.post('/categorias/deletar', async (req, res) => {
 })
 
 
-router.get('/postagens', (req, res) => {
-    res.render('postagens')
+router.get('/postagens', async (req, res) => {
+    const post = new Postagens()
+    const p = await post.listaDePostagens()
+
+    res.render('postagens', { posts: p })
 })
 
 router.get('/postagens/add', async (req, res) => {

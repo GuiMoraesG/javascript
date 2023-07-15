@@ -40,6 +40,12 @@ class Postagem {
         if (!this.body.descricao) this.erro.push({ texto: 'O campo Descrição tem que estar preenchido' })
         if (!this.body.conteudo) this.erro.push({ texto: 'O campo Conteudo tem que estar preenchido' })
     }
+
+    async listaDePostagens() {
+        const posts = await PostagensModel.find().populate('categoria')
+
+        return posts
+    }
 }
 
 module.exports = Postagem
