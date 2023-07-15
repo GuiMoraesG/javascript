@@ -18,6 +18,7 @@ app.use(session({
     saveUninitialized: true
 }))
 app.use(flash())
+
 app.use((req, res, next) => {
     res.locals.successMsg = req.flash('successMsg')
     res.locals.erroMsg = req.flash('erroMsg')
@@ -42,10 +43,6 @@ app.use(express.json())
 app.use(router)
 
 app.use(express.static(path.join(__dirname, 'public ')))
-
-
-
-
 
 
 

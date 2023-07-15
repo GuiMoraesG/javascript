@@ -39,6 +39,21 @@ router.post('/categorias/edit', async (req, res) => {
     const categoria = new Categoria(req.body)
     await categoria.editar(req.body.id)
 
+    if (categoria.erros.length > 0) {
+        req.flash('erroMsg', 'Categoria não conseguiu ser editada')
+        res.redirect('/categorias')
+        return
+    }
+
+    req.flash('successMsg', 'Categoria editada com sucesso!')
+    res.redirect('/categorias')
+})
+
+router.post('/categorias/deletar', async (req, res) => {
+    const categoria = new Categoria()
+    await categoria.deletarCategoria(req.body)
+
+    req.flash('successMsg', 'Categoria deletada com sucesso!')
     res.redirect('/categorias')
 })
 

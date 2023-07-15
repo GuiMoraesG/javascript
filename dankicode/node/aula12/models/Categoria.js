@@ -50,6 +50,11 @@ class Categoria {
         await CategoriaModel.findByIdAndUpdate(id, this.body, { new: true })
     }
 
+    async deletarCategoria(id) {
+        id = id.id
+        await CategoriaModel.findByIdAndDelete(id)
+    }
+
 }
 
 module.exports = Categoria
