@@ -57,4 +57,16 @@ router.post('/categorias/deletar', async (req, res) => {
     res.redirect('/categorias')
 })
 
+
+router.get('/postagens', (req, res) => {
+    res.render('postagens')
+})
+
+router.get('/postagens/add', async (req, res) => {
+    const categoria = new Categoria()
+    const cat = await categoria.procurarCategorias()
+
+    res.render('postagensAdd', { cat })
+})
+
 module.exports = router
