@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Categoria = require('./models/Categoria')
+const Postagens = require('./models/Postagens')
 
 router.get('/', (req, res) => res.render('index'))
 router.get('/posts', (req, res) => res.send('Página Posts'))
@@ -67,6 +68,23 @@ router.get('/postagens/add', async (req, res) => {
     const cat = await categoria.procurarCategorias()
 
     res.render('postagensAdd', { cat })
+})
+
+router.post('/postagens/nova', async (req, res) => {
+    const post = new Postagens(req.body)
+    await post.registro()
+
+    if (post.erro.length > 0) {
+        req.flash('erroMsg', 'Erro')
+        req.session.save(() => res.redirect('back'))
+        return
+    }
+
+    req.flash('successMsg', 'Nova postagem criada com sucesso!!')
+    req.session.save(() => {
+        res.redirect('/postagens')
+        return
+    })
 })
 
 module.exports = router
