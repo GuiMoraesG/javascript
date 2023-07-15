@@ -6,7 +6,7 @@ const PostagensSchema = new mongoose.Schema({
     slug: { type: String, required: true },
     descricao: { type: String, required: true },
     conteudo: { type: String, required: true },
-    categoria: { type: mongoose.Schema.ObjectId, ref: Categoria, required: true },
+    categoria: { type: mongoose.Schema.Types.ObjectId, ref: Categoria, required: false },
     data: { type: Date, default: Date.now }
 })
 
@@ -45,6 +45,23 @@ class Postagem {
         const posts = await PostagensModel.find().populate('categoria')
 
         return posts
+    }
+
+    async postagemId(id) {
+        const p = PostagensModel.findById(id)
+        return p
+    }
+
+    async editar(id) {
+        this.body = {
+            titulo: this.body.titulo,
+            slug: this.body.slug,
+            descricao: this.body.descricao,
+        }
+
+        const p = await PostagensModel.findByIdAndUpdate(id, this.body, { new: true })
+
+        return p
     }
 }
 

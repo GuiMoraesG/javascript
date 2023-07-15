@@ -90,4 +90,24 @@ router.post('/postagens/nova', async (req, res) => {
     })
 })
 
+router.get('/postagens/edit/:id', async (req, res) => {
+    const post = new Postagens()
+    const p = await post.postagemId(req.params.id)
+    const categoria = new Categoria()
+    const cat = await categoria.procurarCategoriasPelaId(p.categoria)
+
+    res.render('editpostagens', { p, cat })
+})
+
+router.post('/postagens/edit', async (req, res) => {
+    const post = new Postagens(req.body)
+    await post.editar(req.body.id)
+
+    req.flash('successMsg', 'Poste editada com sucesso!')
+    req.session.save(() => {
+        res.redirect('/postagens')
+        return
+    })
+})
+
 module.exports = router

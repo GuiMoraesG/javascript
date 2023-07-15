@@ -5,12 +5,13 @@
 
 {{#each posts}}
 
-<div class="card">
+<div class="card mt-2">
     <div class="card-body">
         <h4>{{titulo}}</h4>
         <p>{{descricao}}</p>
         <small>Data: {{data}}</small><br>
         <small>Categoria: {{categoria}}</small><br>
+        <a href="/postagens/edit/{{_id}}"><button class="btn btn-success mt-2">Editar</button></a>
     </div>
 </div>
 
