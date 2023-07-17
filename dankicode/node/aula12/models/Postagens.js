@@ -68,6 +68,10 @@ class Postagem {
     async deletar(id) {
         return await PostagensModel.findByIdAndDelete(id)
     }
+
+    async postagemPeloSlug(slug) {
+        return await PostagensModel.find({ slug: slug })
+    }
 }
 
 module.exports = Postagem

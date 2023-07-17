@@ -143,4 +143,11 @@ router.get('/categoria', async (req, res) => {
     res.render('categoria', { cat })
 })
 
+router.get('/categoria/:slug', async (req, res) => {
+    const post = new Postagens()
+    const p = await post.postagemPeloSlug(req.params.slug)
+
+    res.render('categoriaIndex', { p })
+})
+
 module.exports = router
