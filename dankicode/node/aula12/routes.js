@@ -3,7 +3,12 @@ const router = express.Router()
 const Categoria = require('./models/Categoria')
 const Postagens = require('./models/Postagens')
 
-router.get('/', (req, res) => res.render('index'))
+router.get('/', async (req, res) => {
+    const post = new Postagens()
+    const p = await post.listaDePostagens()
+
+    res.render('index', { p })
+})
 router.get('/posts', (req, res) => res.send('Página Posts'))
 
 router.get('/categorias', async (req, res) => {

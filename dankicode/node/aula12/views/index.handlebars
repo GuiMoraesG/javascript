@@ -1,1 +1,25 @@
-<button class="btn btn-success"> Enviar</button>
+<div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold">Bem vindo ao Blog do node</h1>
+    <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous
+        versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
+    <button class="btn btn-primary btn-lg" type="button">Crie uma conta</button>
+</div>
+
+<h2>Postagens Recentes: </h2>
+
+{{#each p}}
+
+<div class="card mt-2">
+    <div class="card-body">
+        <h4>{{titulo}}</h4>
+        <p>{{descricao}}</p>
+        <small>Data: {{data}}</small><br>
+        <small>Categoria: {{categoria}}</small><br>
+        <a href="/postagens/edit/{{_id}}"><button class="btn btn-success mt-2">Editar</button></a>
+        <a href="/postagens/deletar/{{_id}}"><button class="btn btn-danger mt-2">Deletar Postagem</button></a>
+    </div>
+</div>
+
+{{else}}
+<p>Nenhuma postagem registrada</p>
+{{/each}}
