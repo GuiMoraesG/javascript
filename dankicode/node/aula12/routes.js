@@ -136,4 +136,11 @@ router.get('/postagem/:titulo/:id', async (req, res) => {
     res.render('posts/index', { p })
 })
 
+router.get('/categoria', async (req, res) => {
+    const categoria = new Categoria()
+    const cat = await categoria.procurarCategorias()
+
+    res.render('categoria', { cat })
+})
+
 module.exports = router
