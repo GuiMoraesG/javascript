@@ -110,4 +110,16 @@ router.post('/postagens/edit', async (req, res) => {
     })
 })
 
+router.get('/postagens/deletar/:id', async (req, res) => {
+    const post = new Postagens()
+    await post.deletar(req.params.id)
+
+
+    req.flash('successMsg', 'POste excluido com sucesso')
+    req.session.save(() => {
+        res.redirect('back')
+        return
+    })
+})
+
 module.exports = router

@@ -63,6 +63,10 @@ class Postagem {
 
         return p
     }
+
+    async deletar(id) {
+        return await PostagensModel.findByIdAndDelete(id)
+    }
 }
 
 module.exports = Postagem
