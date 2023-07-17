@@ -57,6 +57,7 @@ class Postagem {
             titulo: this.body.titulo,
             slug: this.body.slug,
             descricao: this.body.descricao,
+            conteudo: this.body.conteudo,
         }
 
         const p = await PostagensModel.findByIdAndUpdate(id, this.body, { new: true })

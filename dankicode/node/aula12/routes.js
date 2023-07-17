@@ -6,6 +6,8 @@ const Postagens = require('./models/Postagens')
 router.get('/', async (req, res) => {
     const post = new Postagens()
     const p = await post.listaDePostagens()
+    const categoria = new Categoria()
+    const cat = await categoria.procurarCategorias()
 
     res.render('index', { p })
 })
@@ -125,6 +127,13 @@ router.get('/postagens/deletar/:id', async (req, res) => {
         res.redirect('back')
         return
     })
+})
+
+router.get('/postagem/:titulo/:id', async (req, res) => {
+    const post = new Postagens()
+    const p = await post.postagemId(req.params.id)
+
+    res.render('posts/index', { p })
 })
 
 module.exports = router
