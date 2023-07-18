@@ -175,4 +175,8 @@ router.post('/registro', async (req, res) => {
     })
 })
 
+router.get('/login', (req, res) => {
+    res.render('logins/formLogin')
+})
+
 module.exports = router
