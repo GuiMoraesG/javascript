@@ -179,4 +179,24 @@ router.get('/login', (req, res) => {
     res.render('logins/formLogin')
 })
 
+router.post('/logado', async (req, res) => {
+    const user = new Usuario(req.body)
+    const u = await user.cadastrar()
+
+    if (user.erros.length > 0) {
+        req.flash('erroMsg', user.erros)
+        req.session.save(() => {
+            res.redirect('back')
+            return
+        })
+        return
+    }
+
+    req.flash('successMsg', 'Login executado com sucesso')
+    req.session.save(() => {
+        res.redirect('back')
+        return
+    })
+})
+
 module.exports = router

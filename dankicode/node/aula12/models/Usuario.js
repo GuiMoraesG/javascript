@@ -49,6 +49,18 @@ class Usuario {
         if (this.body.senha !== this.body.senha2) this.erros.push('Os campos de senha tem que ser iguais!!')
         if (this.body.senha.length < 4) this.erros.push('Sua senha tem que ter nom minimo 4 caracteres!!')
     }
+
+    async cadastrar() {
+        this.usuario = await UsuarioModel.findOne({ email: this.body.email })
+        if (!this.usuario) this.erros.push('E-mail ainda não cadastrado')
+        if (this.erros.length > 0) return
+
+        if (!bcypt.compareSync(this.body.senha, this.usuario.senha)) {
+            this.erros.push('Senha inválida')
+            this.usuario = null
+            return
+        }
+    }
 }
 
 module.exports = Usuario
