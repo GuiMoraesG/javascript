@@ -22,6 +22,7 @@ app.use(flash())
 app.use((req, res, next) => {
     res.locals.successMsg = req.flash('successMsg')
     res.locals.erroMsg = req.flash('erroMsg')
+    res.locals.user = req.session.usuario
 
     next()
 })

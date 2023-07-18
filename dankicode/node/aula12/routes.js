@@ -193,6 +193,7 @@ router.post('/logado', async (req, res) => {
     }
 
     req.flash('successMsg', 'Login executado com sucesso')
+    req.session.usuario = user.usuario
     req.session.save(() => {
         res.redirect('back')
         return

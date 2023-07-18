@@ -1,4 +1,9 @@
 <h2>Entrar na sua conta: </h2>
+{{#if usuario}}
+
+<h1>{{usuario}}</h1>
+
+{{/if}}
 <form action="/logado" method="POST">
 
     <div class="mb-3">
