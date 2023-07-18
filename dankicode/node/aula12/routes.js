@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Categoria = require('./models/Categoria')
 const Postagens = require('./models/Postagens')
+const Usuario = require('./models/Usuario')
 
 router.get('/', async (req, res) => {
     const post = new Postagens()
@@ -148,6 +149,30 @@ router.get('/categoria/:slug', async (req, res) => {
     const p = await post.postagemPeloSlug(req.params.slug)
 
     res.render('categoriaIndex', { p })
+})
+
+router.get('/registro', (req, res) => {
+    res.render('users/registro')
+})
+
+router.post('/registro', async (req, res) => {
+    const user = new Usuario(req.body)
+    await user.registro()
+
+    if (user.erros.length > 0) {
+        req.flash('erroMsg', user.erros)
+        req.session.save(() => {
+            res.redirect('back')
+            return
+        })
+        return
+    }
+
+    req.flash('successMsg', 'Conta criada com sucesso')
+    req.session.save(() => {
+        res.redirect('back')
+        return
+    })
 })
 
 module.exports = router
