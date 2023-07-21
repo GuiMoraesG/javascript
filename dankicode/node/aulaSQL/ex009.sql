@@ -1,4 +1,4 @@
-alter table alunos add foreign key (cursospreferidos) reference cursos (idcursos);
+alter table alunos add foreign key (cursospreferidos) references cursos (idcursos);
 
 update alunos set cursopreferido = '8' where id = '1';
 
