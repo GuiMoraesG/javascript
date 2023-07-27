@@ -38,7 +38,7 @@ function criarTarefa(textoInput) {
 }
 
 botao.addEventListener('click', function () {
-    if (!inputText.value) return;
+    if (!inputText.value) return
     criarTarefa(inputText.value)
 })
 
