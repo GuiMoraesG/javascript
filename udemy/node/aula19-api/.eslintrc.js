@@ -27,5 +27,6 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'import/first': 'off',
     'quote-props': 'off',
+    'no-param-reassign': 'off',
   },
 };
