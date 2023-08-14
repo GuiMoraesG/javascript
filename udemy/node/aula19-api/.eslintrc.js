@@ -28,5 +28,7 @@ module.exports = {
     'import/first': 'off',
     'quote-props': 'off',
     'no-param-reassign': 'off',
+    'consistent-return': 'off',
+    'no-unused-vars': 'off',
   },
 };
