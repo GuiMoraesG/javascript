@@ -30,5 +30,6 @@ module.exports = {
     'no-param-reassign': 'off',
     'consistent-return': 'off',
     'no-unused-vars': 'off',
+    'camelcase': 'off',
   },
 };
