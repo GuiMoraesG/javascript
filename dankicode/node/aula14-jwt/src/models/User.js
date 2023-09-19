@@ -10,17 +10,41 @@ const UserSchema = new mongoose.Schema({
     date: { type: Date, default: Date.now },
 });
 
-const UserModel = mongoose.model('User', UserSchema);
+const UserModel = mongoose.model('UserMON', UserSchema);
 
 class User {
-    criar(body) {
-        const { name, email, password, confirmpassword } = body;
+    constructor(body) {
+        this.erros = []
+        this.body = body;
+    }
 
-        if (!name || !email || !password || !confirmpassword) return false
-        if (password !== confirmpassword) return false
+    async criar() {
+        if (!this.body.name || !this.body.email || !this.body.password || !this.body.confirmpassword) {
+            return this.erros.push('Todos os campos precisam estar preenchidos')
+        }
 
-        return { name, email, password, confirmpassword };
+        if (this.body.password !== this.body.confirmpassword) {
+            return this.erros.push('Os campos senha preciam ser identicos')
+        }
+
+        await this.emailValidation();
+
+        if (this.erros.length > 0) { return }
+
+        this.body.password = bcrypt.hashSync(this.body.password, 8);
+
+        await UserModel.create({
+            name: this.body.name,
+            email: this.body.email,
+            password: this.body.password,
+        });
+    }
+
+    async emailValidation() {
+        const user = await UserModel.findOne({ email: this.body.email });
+
+        if (user) { return this.erros.push('E-mail já registrado') }
     }
 }
 
-module.exports = new User();
+module.exports = User;

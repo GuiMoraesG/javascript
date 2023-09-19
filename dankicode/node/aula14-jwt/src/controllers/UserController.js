@@ -1,13 +1,18 @@
-const userModel = require('../models/User');
+const UserModel = require('../models/User');
 
 module.exports = {
-    store(req, res) {
-        const user = userModel.criar(req.body);
+    async store(req, res) {
+        const user = new UserModel(req.body)
+        await user.criar();
 
-        if (!user) return res.status(400).send({
-            error: 'Algum campo está com erro'
+        if (user.erros.length) {
+            return res.status(400).json({
+                errors: user.erros,
+            });
+        }
+
+        return res.status(201).json({
+            success: 'Seu Cadastro foi realizado!',
         });
-
-        return res.send(user);
     },
 };
