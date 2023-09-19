@@ -33,10 +33,39 @@ class User {
         });
     }
 
+    async login() {
+        const user = await UserModel.findOne({ email: this.body.email });
+
+        if (!user) {
+            return this.erros.push('E-mail não cadastrado!')
+        }
+
+        if (!bcrypt.compareSync(this.body.password, user.password)) {
+            return this.erros.push('Senha inválida')
+        }
+
+        const { _id, email } = user;
+        const token = jwt.sign({ _id, email }, process.env.SECRETTOKEN, {
+            expiresIn: process.env.TOKEN_EXPIRATION
+        });
+
+        return token;
+    }
+
+    async findID(id) {
+        const user = await UserModel.findById(id);
+
+        if (!user) return 'Usuário não encontrado'
+
+        return user;
+    }
+
     async emailValidation() {
         const user = await UserModel.findOne({ email: this.body.email });
 
         if (user) { return this.erros.push('E-mail já registrado') }
+
+        return user;
     }
 
     async dataValidation() {
