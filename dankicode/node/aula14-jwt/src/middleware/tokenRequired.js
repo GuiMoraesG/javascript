@@ -1,3 +1,5 @@
+const jwt = require('jsonwebtoken');
+
 module.exports = {
     tokenRequired(req, res, next) {
         const { authorization } = req.headers;
@@ -10,6 +12,14 @@ module.exports = {
 
         const [, token] = authorization.split(' ');
 
-        next();
+        try {
+            jwt.verify(token, process.env.SECRETTOKEN);
+
+            return next();
+        } catch (e) {
+            return res.status(401).json({
+                error: 'Login expirated',
+            })
+        }
     }
 };
